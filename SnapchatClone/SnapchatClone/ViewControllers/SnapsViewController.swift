@@ -49,6 +49,21 @@ class SnapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 print(self.snapsArrays )
                 self.tableview.reloadData()
             }
+            
+            //add event for remove item
+            snaps.observe(DataEventType.childRemoved) { (snapshot) in
+                
+                var indice = 0
+                for snap in self.snapsArrays {
+                    //snapshot.kye retorna o identificador do snap ai é comparado e excluido do array
+                    if snap.identifier == snapshot.key{
+                        self.snapsArrays.remove(at: indice)
+                    }
+                    indice += 1
+                }
+                self.tableview.reloadData()
+            }
+            
         }
         
         

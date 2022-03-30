@@ -100,13 +100,12 @@ class UsersTableViewController: UITableViewController {
                     "idImage": self.idImage
                 ]
                 snaps.childByAutoId().setValue(snap)
+                self.navigationController?.popToRootViewController(animated: true)
                 
-                self.navigationController?.popViewController(animated: true)            }
+            }
+            
         }
-        
-        
-       
-        
+     
     }
 
     /*
